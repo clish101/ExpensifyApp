@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render addexpense page correctly 1`] = `
+<div>
+  This is from my addExpense component
+  <ExpenseForm
+    onSubmit={[Function]}
+  />
+</div>
+`;
