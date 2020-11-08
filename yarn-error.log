@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add enzyme-to-json@1.5.1
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add extract-text-webpack-plugin@3.0.0
 
 PATH: 
   C:\Program Files (x86)\Python38-32\Scripts\;C:\Program Files (x86)\Python38-32\;C:\Program Files\Python36\Scripts\;C:\Program Files\Python36\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Git\cmd;C:\Users\henry\AppData\Local\Microsoft\WindowsApps;C:\Users\henry\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\henry\AppData\Roaming\npm;C:\Users\henry\AppData\Local\Yarn\bin;C:\adb;C:\Program Files\PuTTY\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Users\henry\.windows-build-tools\python27\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Program Files\JetBrains\PyCharm 2018.3.4\bin;
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: EPERM: operation not permitted, unlink 'C:\Users\henry\Desktop\Javascript\ReactMead\Expensify-App\node_modules\acorn-dynamic-import\node_modules\.bin'
+  Error: EPERM: operation not permitted, unlink 'C:\Users\henry\Desktop\Javascript\ReactMead\Expensify-App\node_modules\acorn-globals\node_modules\.bin'
 
 npm manifest: 
   {
@@ -25,9 +25,10 @@ npm manifest:
     "license": "MIT",
     "scripts": {
       "serve": "live-server public/",
-      "build": "webpack",
+      "build:dev": "webpack",
+      "build:prod": "webpack -p --env production",
       "dev-server": "webpack-dev-server",
-      "test": "jest"
+      "test": "jest --config=jest.config.json"
     },
     "dependencies": {
       "babel-cli": "6.24.1",
@@ -40,6 +41,7 @@ npm manifest:
       "babel-preset-react": "6.24.1",
       "css-loader": "0.28.4",
       "enzyme": "2.9.1",
+      "enzyme-to-json": "1.5.1",
       "jest": "20.0.4",
       "live-server": "^1.2.0",
       "moment": "^2.29.1",
@@ -2396,6 +2398,19 @@ Lockfile:
       has "^1.0.3"
       object-is "^1.1.2"
   
+  enzyme-to-json@1.5.1:
+    version "1.5.1"
+    resolved "https://registry.yarnpkg.com/enzyme-to-json/-/enzyme-to-json-1.5.1.tgz#e34f4d126bb3f4696ce3800b51f9ed83df708799"
+    integrity sha1-409NEmuz9Gls44ALUfntg99wh5k=
+    dependencies:
+      lodash.filter "^4.6.0"
+      lodash.isnil "^4.0.0"
+      lodash.isplainobject "^4.0.6"
+      lodash.omitby "^4.5.0"
+      lodash.range "^3.2.0"
+      object-values "^1.0.0"
+      object.entries "^1.0.3"
+  
   enzyme@2.9.1:
     version "2.9.1"
     resolved "https://registry.yarnpkg.com/enzyme/-/enzyme-2.9.1.tgz#07d5ce691241240fb817bf2c4b18d6e530240df6"
@@ -4449,7 +4464,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/lodash.defaults/-/lodash.defaults-4.2.0.tgz#d09178716ffea4dde9e5fb7b37f6f0802274580c"
     integrity sha1-0JF4cW/+pN3p5ft7N/bwgCJ0WAw=
   
-  lodash.filter@^4.4.0:
+  lodash.filter@^4.4.0, lodash.filter@^4.6.0:
     version "4.6.0"
     resolved "https://registry.yarnpkg.com/lodash.filter/-/lodash.filter-4.6.0.tgz#668b1d4981603ae1cc5a6fa760143e480b4c4ace"
     integrity sha1-ZosdSYFgOuHMWm+nYBQ+SAtMSs4=
@@ -4463,6 +4478,16 @@ Lockfile:
     version "4.5.0"
     resolved "https://registry.yarnpkg.com/lodash.foreach/-/lodash.foreach-4.5.0.tgz#1a6a35eace401280c7f06dddec35165ab27e3e53"
     integrity sha1-Gmo16s5AEoDH8G3d7DUWWrJ+PlM=
+  
+  lodash.isnil@^4.0.0:
+    version "4.0.0"
+    resolved "https://registry.yarnpkg.com/lodash.isnil/-/lodash.isnil-4.0.0.tgz#49e28cd559013458c814c5479d3c663a21bfaa6c"
+    integrity sha1-SeKM1VkBNFjIFMVHnTxmOiG/qmw=
+  
+  lodash.isplainobject@^4.0.6:
+    version "4.0.6"
+    resolved "https://registry.yarnpkg.com/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz#7c526a52d89b45c45cc690b88163be0497f550cb"
+    integrity sha1-fFJqUtibRcRcxpC4gWO+BJf1UMs=
   
   lodash.map@^4.4.0:
     version "4.6.0"
@@ -4479,10 +4504,20 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
     integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
   
+  lodash.omitby@^4.5.0:
+    version "4.6.0"
+    resolved "https://registry.yarnpkg.com/lodash.omitby/-/lodash.omitby-4.6.0.tgz#5c15ff4754ad555016b53c041311e8f079204791"
+    integrity sha1-XBX/R1StVVAWtTwEExHo8HkgR5E=
+  
   lodash.pick@^4.2.1:
     version "4.4.0"
     resolved "https://registry.yarnpkg.com/lodash.pick/-/lodash.pick-4.4.0.tgz#52f05610fff9ded422611441ed1fc123a03001b3"
     integrity sha1-UvBWEP/53tQiYRRB7R/BI6AwAbM=
+  
+  lodash.range@^3.2.0:
+    version "3.2.0"
+    resolved "https://registry.yarnpkg.com/lodash.range/-/lodash.range-3.2.0.tgz#f461e588f66683f7eadeade513e38a69a565a15d"
+    integrity sha1-9GHliPZmg/fq3q3lE+OKaaVloV0=
   
   lodash.reduce@^4.4.0:
     version "4.6.0"
@@ -4999,6 +5034,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/object-keys/-/object-keys-1.1.1.tgz#1c47f272df277f3b1daf061677d9c82e2322c60e"
     integrity sha512-NuAESUOUMrlIXOfHKzD6bpPu3tYt3xvjNdRIQ+FeT0lNb4K8WR70CaDxhuNguS2XG+GjkyMwOzsN5ZktImfhLA==
   
+  object-values@^1.0.0:
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/object-values/-/object-values-1.0.0.tgz#72af839630119e5b98c3b02bb8c27e3237158105"
+    integrity sha1-cq+DljARnluYw7AruMJ+MjcVgQU=
+  
   object-visit@^1.0.0:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/object-visit/-/object-visit-1.0.1.tgz#f79c4493af0c5377b59fe39d395e41042dd045bb"
@@ -5016,7 +5056,7 @@ Lockfile:
       has-symbols "^1.0.1"
       object-keys "^1.1.1"
   
-  object.entries@^1.0.4, object.entries@^1.1.2:
+  object.entries@^1.0.3, object.entries@^1.0.4, object.entries@^1.1.2:
     version "1.1.2"
     resolved "https://registry.yarnpkg.com/object.entries/-/object.entries-1.1.2.tgz#bc73f00acb6b6bb16c203434b10f9a7e797d3add"
     integrity sha512-BQdB9qKmb/HyNdMNWVr7O3+z5MUIx3aiegEIJqjMBbBf0YT9RRxTJSim4mzFqtyr7PDAHigq0N9dO0m0tRakQA==
