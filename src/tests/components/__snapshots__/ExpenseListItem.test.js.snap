@@ -14,7 +14,8 @@ exports[`Should render expense list with expenses 1`] = `
   </Link>
   amount - createdAt
   <p>
-    109500
+    KES 
+    1,095.00
     -
     December 28th, 1969
   </p>
