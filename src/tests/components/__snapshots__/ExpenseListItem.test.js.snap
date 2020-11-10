@@ -15,8 +15,8 @@ exports[`Should render expense list with expenses 1`] = `
   amount - createdAt
   <p>
     109500
-     - 
-    -345600000
+    -
+    December 28th, 1969
   </p>
 </div>
 `;
