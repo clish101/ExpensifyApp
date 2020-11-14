@@ -10,6 +10,8 @@ import { addExpense } from './actions/expenses';
 import { setTextFilter } from './actions/filters';
 import getFilteredExpenses from './selectors/expenses_selector';
 import 'react-dates/lib/css/_datepicker.css';
+import './firebase/firebase';
+import './playground/promise/promise';
 
 const store = configureStore();
 
