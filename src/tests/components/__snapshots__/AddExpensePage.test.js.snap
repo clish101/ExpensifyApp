@@ -2,7 +2,9 @@
 
 exports[`Should render addexpense page correctly 1`] = `
 <div>
-  This is from my addExpense component
+  <h1>
+    Add Expense
+  </h1>
   <ExpenseForm
     onSubmit={[Function]}
   />

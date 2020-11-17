@@ -12,7 +12,6 @@ exports[`Should render expense list with expenses 1`] = `
       Rent
     </h3>
   </Link>
-  amount - createdAt
   <p>
     KES 
     1,095.00
