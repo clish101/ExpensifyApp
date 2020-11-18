@@ -2,7 +2,6 @@
 
 exports[`Should show the dashboard page of the expenses 1`] = `
 <div>
-  This is from my dashboard component
   <Connect(ExpensesSummary) />
   <Connect(ExpenseListFilters) />
   <Connect(ExpenseList) />

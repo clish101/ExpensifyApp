@@ -5,8 +5,14 @@ html {
 body {
   font-family: Helvetica;
   font-size: $m-size;
+  color: $dark-grey;
+  line-height: 1.6;
 }
 
 .is-active {
   font-weight: bold;
+}
+
+* {
+  box-sizing: border-box;
 }
